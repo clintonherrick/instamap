@@ -1,0 +1,11 @@
+<h3>Your media search results:</h3>
+
+<% @results.each do |result| %>
+
+  <pre>
+    <%= result %>
+  </pre>
+
+  <%= image_tag result.images['low_resolution'].url %>
+
+<% end %>
