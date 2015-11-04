@@ -1,0 +1,44 @@
+<h1>
+  Search results <br>
+  <small>
+    Total count: <%= @results.count %>
+  </small>
+</h1>
+
+<% if @hashtag %>
+  <h2>Tag Name = <%= @hashtag %></h2>
+<% end %>
+
+<% if @geocoded_location %>
+  <h2>
+    Location = <%= @geocoded_location.address %>
+    <small>
+      latitude = <%= @geocoded_location.latitude %>
+      longitude = <%= @geocoded_location.longitude %>
+    </small>
+  </h2>
+<% end %>
+
+
+<% @results.each do |result| %>
+
+  <pre>
+  <%= result %>
+  </pre>
+
+  <p>
+    <%= image_tag result.user['profile_picture'] %>
+  </p>
+  <%= image_tag result.images['low_resolution'].url %>
+
+  <h4>
+    User: <%= result.user['username'] %><br>
+    Time: <%= Date.strptime((result.created_time.to_i).to_s, '%s') %><br>
+    <% if result.caption %>
+      Caption: <%= result.caption['text'] %>
+    <% end %>
+  </h4>
+
+  <hr>
+
+<% end %>

@@ -6,9 +6,22 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <%= yield %>
 
-<%= yield %>
+  <script charset="utf-8">
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 45, lng: -122},
+      zoom: 8
+    });
+  }
+  </script>
 
-</body>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy1AZgshJ0GIrIZK4-k8Awvnf_m2CrgdA&callback=initMap"
+       async defer></script>
+ </body>
+
 </html>

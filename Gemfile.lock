@@ -98,6 +98,7 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
+    geocoder (1.2.12)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashdiff (0.2.2)
@@ -262,6 +263,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   font-awesome-rails
+  geocoder
   hirb
   instagram
   jquery-rails

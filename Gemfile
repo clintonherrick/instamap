@@ -13,6 +13,7 @@ gem "font-awesome-rails"
 gem 'paperclip'
 gem 'rest-client'
 gem 'instagram'
+gem 'geocoder'
 
 group :development do
   gem 'letter_opener'

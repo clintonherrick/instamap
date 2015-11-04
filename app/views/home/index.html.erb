@@ -1,21 +1,23 @@
-<h3>I N S T A M A P</h3>
+<h3>P A M A T S N I</h3>
 
 <!-- Search Tags -->
-<%= form_tag '/tags', {method: 'get', id: 'search-field'} do %>
-  <%= text_field_tag :tag, params[:tag] %>
+<%= form_tag '/results', {method: 'get', id: 'search-field', remote: true} do %>
+  <div id="location-field">
+    <%= label_tag :location %>
+    <%= text_field_tag :location, params[:location] %>
+  </div>
+  <br>
+  <div id="hashtag-field">
+    <%= label_tag :hashtag %>
+    <%= text_field_tag :hashtag, params[:hashtag] %>
+  </div>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
 
+<div id="map">
 
-<% @instagram.each do |instagram| %>
+</div>
 
-    <%= image_tag instagram.images.standard_resolution.url %>
+<div id="results">
 
-    <% end %>
-
-    <ol>
-      <li><a href='/location_recent_media'>Location Recent Media</a> Calls location_recent_media - Get a list of recent media at a given location, in this case, the Instagram office</li>
-      <li><a href='/location_search'>Location Search</a> Calls location_search - Search for a location by lat/lng</li>
-      <li><a href='/tags'>Tags</a>Search for tags, view tag info and get media by tag</li>
-
-    </ol>
+</div>

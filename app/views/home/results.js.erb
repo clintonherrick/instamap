@@ -1,0 +1,8 @@
+<% if @geocoded_location %>
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: <%= @geocoded_location.latitude %>, lng: <%= @geocoded_location.longitude %>},
+    zoom: 8
+  });
+<% end %>
+
+$('#results').html("<%= j render 'results' %>")
