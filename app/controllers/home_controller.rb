@@ -15,12 +15,7 @@ class HomeController < ApplicationController
 
   def media_search
     client = Instagram.client(:access_token => config[:access_token])
-    # html = "<h1>Get a list of media close to a given latitude and longitude</h1>"
-    # for media_item in client.media_search("37.7808851","-122.3948632")
-    #   html << "<img src='#{media_item.images.thumbnail.url}'>"
-    # end
-    # html
-    @results = client.media_search("37.7808851","-122.3948632")[1,5]
+    @results = client.media_search("37.7808851","-122.3948632")[1,10]
   end
 
   def location_search
@@ -33,13 +28,8 @@ class HomeController < ApplicationController
   end
 
   def tags
-    client = Instagram.client(:access_token => config[:access_token])
-    html = "<h1>Search for tags, get tag info and get media by tag</h1>"
-    tags = client.tag_search('cat')
-    html << "<h2>Tag Name = #{tags[0].name}. Media Count =  #{tags[0].media_count}. </h2><br/><br/>"
-    for media_item in client.tag_recent_media(tags[0].name)
-      html << "<img src='#{media_item.images.thumbnail.url}'>"
-    end
-    html
+    client = Instagram.client()
+    @tag = params[:tag]
+    @results = client.tag_recent_media(@tag)
   end
 end

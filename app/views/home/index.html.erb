@@ -1,7 +1,8 @@
 <h3>I N S T A M A P</h3>
 
-<%= form_tag root_path, {method: 'get', id: 'search-field', remote: true} do %>
-  <%= text_field_tag :location %>
+<!-- Search Tags -->
+<%= form_tag '/tags', {method: 'get', id: 'search-field'} do %>
+  <%= text_field_tag :tag, params[:tag] %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
 

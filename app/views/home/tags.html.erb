@@ -1,10 +1,12 @@
-<h3>Your media search results:</h3>
+<h1>Search for tags, get tag info and get media by tag</h1>
+
+<h2>Tag Name = <%= @tag %>. Media Count =  <%= @results.count %>. </h2><br/><br/>
 
 <% @results.each do |result| %>
 
-<pre>
-<%= result %>
-</pre>
+  <pre>
+  <%= result %>
+  </pre>
 
   <p>
     <%= image_tag result.user['profile_picture'] %>
@@ -13,7 +15,7 @@
 
   <h4>
     User: <%= result.user['username'] %><br>
-    Time: <%= Date.strptime((result.created_time.to_f / 1000).to_s, '%s') %><br>
+    Time: <%= Date.strptime((result.created_time.to_i).to_s, '%s') %><br>
     Caption: <%= result.caption['text'] %>
   </h4>
 
